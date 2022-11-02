@@ -1,0 +1,42 @@
+.app {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #1A1C21;
+    min-height: 800px;
+    min-width: 1200px;
+}
+
+.app-body {
+    display: flex;
+    background-color: #151618;
+    height: 93vh;
+    width: 95vw;
+    min-height: 750px;
+    min-width: 1150px;
+    box-shadow: 0px 0px 62px -7px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 62px -7px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 62px -7px rgba(0,0,0,0.4);
+    border-radius: 30px;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #1C1D1F #151618;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #151618;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #1C1D1F;
+    border-radius: 10px;
+    border: 3px none #151618;
+}
