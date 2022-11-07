@@ -2,38 +2,25 @@ import './Message.css';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const Message = ({message}) => {
-    message.name = "username";
-    message.text = "this is a test ching chong ling long";
-    message.timestamp = "3:10 PM";
-    console.log(message);
-    // message.isSender = true;
-    if (message.isSender) {
+    if (message.sender === "bharat") {
         return (
-            <p className="messages-sender">
+            <p className={`messages-sender ${(message.sender === message.prevSender) && "messages-sender-Consecutive"}`}>
                 <div className="messages-Text-sender">
                     <time dateTime={message.timestamp} className="messages-Timestamp-sender">
                         {message.timestamp}
                     </time>
-                    {message.text}
-                </div>
-                <div className="messages-Text-sender">
-                    <time dateTime={message.timestamp} className="messages-Timestamp-sender">
-                        {message.timestamp}
-                    </time>
-                    <p>
-                    aaa
-                    </p>
+                    {message.message}
                 </div>
             </p>
         )
     } else {
         return (
-            <p className="messages">
-            <span className="messages-Name">
-                <b>{message.name}</b>
+            <p className={`messages ${(message.sender === message.prevSender) && "messages-Consecutive"}`}>
+            <span className={`messages-Name ${(message.sender === message.prevSender) && "messages-Hidden"}`}>
+                <b>{message.sender}</b>
             </span>
                 <div className="messages-Text">
-                    {message.text}
+                        {message.message}
                     <time dateTime={message.timestamp} className="messages-Timestamp">
                         {message.timestamp}
                     </time>

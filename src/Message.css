@@ -2,10 +2,14 @@
     height: fit-content;
     /*width: fit-content;*/
     margin-left: 4%;
-    margin-top: 30px;
+    margin-top: 35px;
     color: #E8EAED;
     position: relative;
     font-family: 'Karla', sans-serif;
+}
+
+.messages-Consecutive{
+    margin-top: 7px;
 }
 
 .messages-Name {
@@ -14,6 +18,10 @@
     top: -20px;
     margin-left: 10px;
     font-size: small;
+}
+
+.messages-Hidden {
+    visibility: hidden;
 }
 
 .messages-Name svg{
@@ -51,7 +59,7 @@
     font-size: 60%;
     position: absolute;
     /*bottom: -15px;*/
-    right: -40px;
+    right: -45px;
     /*top: -16px;*/
     /*right: 5px;*/
     /*position: absolute;*/
@@ -68,6 +76,10 @@
     color: #E8EAED;
     position: relative;
     font-family: 'Karla', sans-serif;
+}
+
+.messages-sender-Consecutive{
+    margin-top: 7px;
 }
 
 .messages-Text-sender{
@@ -108,7 +120,7 @@
     /*top: -16px;*/
     /*bottom: -10px;*/
     /*right: 5px;*/
-    left: -35px;
+    left: -45px;
     border-radius: 5px;
     margin-right: 10px;
     /*border: 1px solid rgba(177,177,177,0.2);*/
