@@ -42,8 +42,8 @@ const Chat = ({messages}) => {
         if (sendRef.current.value !== ""){
             await axios.post('/api/v1/messages/new',{
                 message: sendRef.current.value,
-                sender: "faayez",
-                receiver: "negro",
+                sender: "sender1",
+                receiver: "sender2",
                 timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
             });
         }
