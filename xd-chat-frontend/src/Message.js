@@ -2,7 +2,7 @@ import './Message.css';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const Message = ({message}) => {
-    if (message.sender === "bharat") {
+    if (message.sender === "sender1") {
         return (
             <p className={`messages-sender ${(message.sender === message.prevSender) && "messages-sender-Consecutive"}`}>
                 <div className="messages-Text-sender">

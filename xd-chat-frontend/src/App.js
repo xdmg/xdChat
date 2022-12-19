@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React,{useEffect,useState,useRef} from "react";
 import "./App.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
@@ -8,12 +8,14 @@ import axios from "./axios";
 function App() {
     const [messages, setMessages] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const canvasRef = useRef(null);
 
     useEffect(()=> {
         axios.get('/api/v1/messages/sync').then((response) => {
             setMessages(response.data);
             setLoaded(true);
         });
+
     },[]);
 
     useEffect(() => {
@@ -35,9 +37,9 @@ function App() {
     if (loaded){
         return (
             <div className="app">
-                <div className="app-body">
-                    <Sidebar />
-                    <Chat messages={messages}/>
+                    <div className="app-body">
+                        <Sidebar />
+                        <Chat messages={messages}/>
                 </div>
             </div>
         );

@@ -4,7 +4,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 
 const SidebarChat = ({chats}) => {
     chats.contact = "username";
-    chats.lastMessage = "this is a test bruh momento numero uno this is a test";
+    chats.lastMessage = "this is a test to check for overflow and hide it";
     chats.unread = true;
     return (
         <div className="sidebarChat">

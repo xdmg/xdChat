@@ -53,7 +53,7 @@ app.post('/api/v1/messages/new', (req,res,next) => {
     Messages.create(msg, (err,data) => {
         if (err) res.status(500).send(err);
         else res.status(201).send(data);
-    })
+    });
 });
 
 //Fetch messages;

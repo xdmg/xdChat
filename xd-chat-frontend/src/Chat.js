@@ -27,7 +27,7 @@ const Chat = ({messages}) => {
 
     //Adding an event listener to the chat input box;
     useEffect(() => {
-        sendRef.current.addEventListener("keypress", (event) => {
+        sendRef.current.addEventListener("keydown", (event) => {
             if (event.key === 13 || event.which === 13){
                 if (sendRef.current.value !== ""){
                     event.preventDefault();
@@ -42,8 +42,8 @@ const Chat = ({messages}) => {
         if (sendRef.current.value !== ""){
             await axios.post('/api/v1/messages/new',{
                 message: sendRef.current.value,
-                sender: "faayez",
-                receiver: "negro",
+                sender: "sender1",
+                receiver: "sender2",
                 timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
             });
         }
@@ -59,7 +59,7 @@ const Chat = ({messages}) => {
         <div className="chat">
             <div className="chat-header">
                 <div className="chat-header-userInfo">
-                    <AlternateEmailIcon />
+                    <AlternateEmailIcon  id="chat-header-atLogo"/>
                     <h3>Username</h3>
                     <span>Last-seen @ <b>18:30</b></span>
                 </div>
@@ -76,7 +76,7 @@ const Chat = ({messages}) => {
                     {
                         messages.map((messages) => (
                         <Message message={messages}/>
-                    ))};
+                    ))}
                 </div>
             </div>
             <div className="chat-footer">
