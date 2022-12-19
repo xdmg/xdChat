@@ -27,7 +27,8 @@ const Chat = ({messages}) => {
 
     //Adding an event listener to the chat input box;
     useEffect(() => {
-        sendRef.current.addEventListener("keydown", (event) => {
+        sendRef.current.addEventListener("keypress", (event) => {
+            console.log('sent')
             if (event.key === 13 || event.which === 13){
                 if (sendRef.current.value !== ""){
                     event.preventDefault();
