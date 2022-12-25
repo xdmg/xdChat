@@ -56,6 +56,10 @@ const Chat = ({messages}) => {
        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     },[messages]);
 
+    // const t = {
+    //     sender:'sender1',
+    //     text
+    // }
     return (
         <div className="chat">
             <div className="chat-header">
@@ -73,6 +77,9 @@ const Chat = ({messages}) => {
                 </div>
             </div>
             <div className="chat-body" ref={scrollRef}>
+                {/* <div className="test">
+                    <Message message={}/>
+                </div> */}
                 <div className="chat-body-messages">
                     {
                         messages.map((messages) => (
