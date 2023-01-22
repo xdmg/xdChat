@@ -32,6 +32,11 @@ function Sidebar() {
                 <SidebarChat chats={chats}/>
                 <SidebarChat chats={chats}/>
                 <SidebarChat chats={chats}/>
+                <SidebarChat chats={chats}/>
+                <SidebarChat chats={chats}/>
+                <SidebarChat chats={chats}/>
+                <SidebarChat chats={chats}/>
+                <SidebarChat chats={chats}/>
             </div>
         </div>
     );

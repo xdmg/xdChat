@@ -66,9 +66,10 @@
    border-radius: 10px;
 }
 
-.sidebar-searchContainer:hover{
+.sidebar-searchContainer:is(:hover,:focus-within,:active){
    /*border: 1px solid rgba(255,255,255,0.05);*/
-   background-color: rgba(177,177,177,0.1);
+   /*background-color: rgba(177,177,177,0.1);*/
+   background-color: #25272b;
    /*border: 1px inset rgba(103, 152, 255, 0.4);*/
 }
 

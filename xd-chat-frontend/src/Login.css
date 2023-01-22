@@ -1,0 +1,94 @@
+
+.login {
+    display: flex;
+    width: 100%;
+    padding: 25px;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition-property: transform;
+    transition-duration: 600ms;
+    transition-timing-function: ease-in-out;
+}
+
+.login:hover {
+    /*transform: translateY(1000px);*/
+}
+
+
+.login-input{
+    /*border: 1px solid rgba(177,177,177,0.1);*/
+    min-height:30px;
+    display: flex;
+    align-items: center;
+    background-color: #1A1C21;
+    justify-content: center;
+    align-content: center;
+    width: 85%;
+    height: 60px;
+    padding: 0 15px 0 15px;
+    /*padding-left: 10px;*/
+    border-radius: 9px;
+}
+
+.login-input:is(:hover, :focus-within, :active) {
+    /*background-color: rgba(177,177,177,0.1);*/
+    background-color: #25272b;
+}
+
+.login-input:is(:focus-within, :active) > svg{
+    color: #6798FF;
+}
+
+.login-input input{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+
+    /*margin-left: 5px;*/
+    padding-left: 15px;
+    height: 55%;
+    width: 90%;
+    color: #B1B1B1;
+    background: none;
+    -webkit-text-security: disc;
+}
+
+.login-input input[type="password"]:not(:placeholder-shown) {
+    font-size: 0.4rem;
+    letter-spacing: 3px;
+}
+
+.login-input svg{
+    font-size: 1.8rem;
+    border-radius: 15px;
+    padding-right: 15px;
+}
+
+.login-input svg:hover{
+    /*color: #6798FF;*/
+}
+
+.underline {
+    outline: 1px solid rgba(103,152,255,0.3);
+    /*filter: drop-shadow(0px 0px 10px rgba(103, 152, 255, 0.1));*/
+}
+
+.blueBorder {
+    border: none;
+    border-left: 1px solid rgba(103,152,255,0.3);
+}
+.whiteBorder {
+    border: none;
+    border-left: 1px solid rgba(177,177,177,0.1);
+}
+
+.svgBlue {
+    color: #6798FF;
+    filter: drop-shadow(0px 0px 10px rgba(103, 152, 255, 0.6));
+ }
+
+.svgGrey {
+    color: #B1B1B1;
+}
