@@ -1,3 +1,4 @@
+
 import "./Chat.css";
 import Message from './Message';
 import axios from "./axios";
@@ -43,7 +44,7 @@ const Chat = ({messages}) => {
         if (sendRef.current.value !== ""){
             await axios.post('/api/v1/messages/new',{
                 message: sendRef.current.value,
-                sender: "sender1",
+                sender: "bharat",
                 receiver: "sender2",
                 timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
             });

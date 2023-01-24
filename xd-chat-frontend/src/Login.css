@@ -1,8 +1,18 @@
-
-.login {
+.login-outer {
     display: flex;
     width: 100%;
-    padding: 25px;
+    height: 100%;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.login {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    /*padding: 25px;*/
     gap: 10px;
     justify-content: center;
     flex-direction: column;
@@ -12,14 +22,18 @@
     transition-timing-function: ease-in-out;
 }
 
-.login:hover {
-    /*transform: translateY(1000px);*/
+.right {
+    transform: translateX(2000px);
+}
+
+.left {
+    transform: translateX(-2000px);
 }
 
 
-.login-input{
+.login-input {
     /*border: 1px solid rgba(177,177,177,0.1);*/
-    min-height:30px;
+    min-height: 30px;
     display: flex;
     align-items: center;
     background-color: #1A1C21;
@@ -27,7 +41,7 @@
     align-content: center;
     width: 85%;
     height: 60px;
-    padding: 0 15px 0 15px;
+    /*padding: 0 15px 0 15px;*/
     /*padding-left: 10px;*/
     border-radius: 9px;
 }
@@ -37,58 +51,159 @@
     background-color: #25272b;
 }
 
-.login-input:is(:focus-within, :active) > svg{
+.login-input:is(:focus-within, :active) > svg {
     color: #6798FF;
 }
 
-.login-input input{
+.login-input input {
     font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     outline: none;
-
     /*margin-left: 5px;*/
     padding-left: 15px;
     height: 55%;
-    width: 90%;
+    flex: 1;
     color: #B1B1B1;
     background: none;
     -webkit-text-security: disc;
 }
 
 .login-input input[type="password"]:not(:placeholder-shown) {
-    font-size: 0.4rem;
+    font-size: 0.6rem;
     letter-spacing: 3px;
 }
 
-.login-input svg{
+.login-input svg {
     font-size: 1.8rem;
     border-radius: 15px;
-    padding-right: 15px;
+    padding: 0 15px 0 15px;
 }
 
-.login-input svg:hover{
+.login-input svg:hover {
     /*color: #6798FF;*/
 }
 
 .underline {
-    outline: 1px solid rgba(103,152,255,0.3);
+    outline: 1px solid rgba(103, 152, 255, 0.3);
     /*filter: drop-shadow(0px 0px 10px rgba(103, 152, 255, 0.1));*/
 }
 
 .blueBorder {
     border: none;
-    border-left: 1px solid rgba(103,152,255,0.3);
+    border-left: 1px solid rgba(103, 152, 255, 0.3);
 }
+
 .whiteBorder {
     border: none;
-    border-left: 1px solid rgba(177,177,177,0.1);
+    border-left: 1px solid rgba(177, 177, 177, 0.1);
 }
 
 .svgBlue {
     color: #6798FF;
     filter: drop-shadow(0px 0px 10px rgba(103, 152, 255, 0.6));
- }
+}
 
 .svgGrey {
     color: #B1B1B1;
+}
+
+.button-google {
+    background-color: #e8eaed;
+    color: #1A1C21;
+}
+
+.button-normal {
+    background-color: #1A1C21;
+    color: #B1B1B1;
+}
+
+.button-google > button {
+    color: #1A1C21;
+}
+
+.button-normal > button {
+    color: #B1B1B1;
+}
+
+.login-button {
+    /*border: 1px solid rgba(177,177,177,0.1);*/
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 85%;
+    height: 50px;
+    /*padding: 0 15px 0 15px;*/
+    /*padding-left: 10px;*/
+    border-radius: 9px;
+    overflow: clip;
+    transition: width 1s ease-in-out;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-t-5 {
+    margin-top: 5px;
+}
+
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.login-button > button {
+    display: flex;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.login-button > button:hover {
+    background-color: #6798FF;
+    color: white;
+    transition: 1ms ease-in-out;
+}
+
+.login-button > button > svg {
+    padding: 0.4rem;
+    font-size: 1rem;
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+.login-button > button:hover > svg {
+    transition: all 1ms ease-in-out;
+    transform: translateX(50%);
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+.login-border {
+    border-top: 1px solid rgba(177, 177, 177, 0.1);
+    width: 85%;
+}
+
+.register {
+    font-size: 0.8rem;
+    color: #b1b1b1;
+}
+
+.register-button {
+    background-color: #1C1D1F;
+    border: none;
+    color: #b1b1b1;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 5px;
 }
