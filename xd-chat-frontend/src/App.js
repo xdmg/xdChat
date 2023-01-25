@@ -2,27 +2,44 @@ import React, {useEffect, useState} from "react";
 import "./App.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
+import {auth} from "./firebase";
 import Pusher from "pusher-js";
 import axios from "./axios";
-import Login from "./Login";
+import Authenticate from "./Authenticate";
+import {onAuthStateChanged} from "firebase/auth";
 
-function App() {
+const App = () => {
     const [messages, setMessages] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [token, setToken] = useState(null);
+    const [fixWidth, enableFixWidth] = useState(false);
 
+
+    //This is a hook like useEffect,
+    //It runs everytime the authentication state changes;
+    onAuthStateChanged(auth, (currentUser) => setToken(currentUser));
+
+    //Fetch all messages !STC;
     useEffect(() => {
-        axios
-            .get("/api/v1/messages/sync")
-            .then((response) => {
-                setMessages(response.data);
-                setLoaded(true);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+        if (token !== null) {
+            axios
+                .get("/api/v1/messages/sync")
+                .then((response) => {
+                    setMessages(response.data);
+                    setLoaded(true);
 
+                    //This is done only for animation purposes;
+                    //It sets the minimum width on the app-body half-a-second after it has loaded;
+                    // setTimeout(() => enableFixWidth(true), 1000);
+
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    }, [token]);
+
+    //Add pusher channel's for insertion & deletion;
     useEffect(() => {
         const pusher = new Pusher("5fd72bdbc25ba07c8de1", {
             cluster: "ap2",
@@ -44,26 +61,31 @@ function App() {
         };
     }, [messages]);
 
+    //If user is not logged in;
     if (token === null)
         return (
             <div className="app">
-                <div className="login-body">
-                    <Login />
+                <div className="auth-body">
+                    <Authenticate/>
                 </div>
             </div>
         )
 
+    //If authentication is done & content is loaded:
     if (loaded)
         return (
             <div className="app">
-                <div className="app-body">
+                <div className={"app-body" + (fixWidth ? " min" : "")}>
                     <Sidebar/>
                     <Chat messages={messages}/>
                 </div>
             </div>
         );
 
-    return <div>loading...</div>;
+    //Otherwise while loading content:
+    return (<div className="app">
+        <div className="auth-body"></div>
+    </div>);
 }
 
 export default App;
