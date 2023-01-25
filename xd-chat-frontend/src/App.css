@@ -1,24 +1,56 @@
+/*Background*/
 .app {
     display: grid;
     place-items: center;
     height: 100vh;
     width: 100vw;
     background-color: #1A1C21;
-    min-height: 800px;
-    min-width: 1500px;
+    min-height: 700px;
+    min-width: 1100px;
 }
 
+/*Main app body*/
 .app-body {
     display: flex;
     background-color: #151618;
     height: 93vh;
     width: 95vw;
-    min-height: 750px;
-    min-width: 1450px;
-    box-shadow: 0px 0px 62px -7px rgba(0,0,0,0.4);
-    -webkit-box-shadow: 0px 0px 62px -7px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px 0px 62px -7px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 62px -7px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 0px 62px -7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 62px -7px rgba(0, 0, 0, 0.3);
     border-radius: 30px;
+    overflow: clip;
+    transition-property: height, width;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+}
+
+.min {
+    min-width: 1050px;
+    min-height: 650px;
+}
+
+/*Main authentication page body*/
+.auth-body {
+    display: flex;
+    background-color: #151618;
+    /*height: 55vh;*/
+    /*width: 25vw;*/
+    height: 550px;
+    width: 450px;
+    box-shadow: 0px 0px 62px -7px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 0px 62px -7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 62px -7px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    transition-property: height, width;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    overflow: clip;
+}
+
+.auth-body:hover {
+    /*height: 93vh;*/
+    /*width: 95vw;*/
 }
 
 /* Firefox */

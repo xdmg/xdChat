@@ -1,166 +1,171 @@
+/*Message body*/
 .messages {
-  height: fit-content;
-  /*width: fit-content;*/
-  margin-left: 4%;
-  margin-top: 35px;
-  color: #e8eaed;
-  position: relative;
-  font-family: "Karla", sans-serif;
+    height: fit-content;
+    display: flex;
+    /*width: fit-content;*/
+    margin-left: 4%;
+    margin-top: 35px;
+    justify-content: flex-start;
+    color: #e8eaed;
+    position: relative;
+    font-family: "Karla", sans-serif;
 }
 
 .messages-Consecutive {
-  margin-top: 7px;
+    margin-top: 7px;
 }
 
 .messages-Name {
-  color: #b1b1b1;
-  position: absolute;
-  top: -23px;
-  margin-left: 10px;
-  font-size: small;
+    color: #b1b1b1;
+    position: absolute;
+    top: -23px;
+    margin-left: 10px;
+    font-size: small;
 }
 
 .messages-Hidden {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .messages-Name svg {
-  font-size: 11px;
+    font-size: 11px;
 }
 
 .messages-Text {
-  /*background-color: #1A1C21;*/
-  background: rgb(26, 28, 33);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(26, 28, 33, 1) 0%,
-    rgba(33, 35, 38, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(26, 28, 33, 1) 0%,
-    rgba(33, 35, 38, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(26, 28, 33, 1) 0%,
-    rgba(33, 35, 38, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a1c21",endColorstr="#212326",GradientType=1);
-  padding: 10px;
-  position: relative;
-  border-radius: 7px;
-  width: fit-content;
-  min-width: 2%;
-  max-width: 60%;
-  margin-bottom: 2px;
-  justify-content: center;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  text-align: left;
-  /*border: 1px solid rgba(177,177,177,0.1);*/
+    /*background-color: #1A1C21;*/
+    background: rgb(26, 28, 33);
+    background: -moz-linear-gradient(
+            90deg,
+            rgba(26, 28, 33, 1) 0%,
+            rgba(33, 35, 38, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+            90deg,
+            rgba(26, 28, 33, 1) 0%,
+            rgba(33, 35, 38, 1) 100%
+    );
+    background: linear-gradient(
+            90deg,
+            rgba(26, 28, 33, 1) 0%,
+            rgba(33, 35, 38, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a1c21", endColorstr="#212326", GradientType=1);
+    padding: 10px;
+    position: relative;
+    border-radius: 7px;
+    width: fit-content;
+    max-width: 60%;
+    margin-bottom: 2px;
+    justify-content: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: left;
+    /*border: 1px solid rgba(177,177,177,0.1);*/
 }
 
 .messages-Timestamp {
-  /*visibility: hidden;*/
-  transform: scale(0);
-  color: #b1b1b1;
-  background-color: #151618;
-  border-radius: 5px;
-  margin-left: 10px;
-  padding: 5px;
-  font-size: 60%;
-  position: absolute;
-  /*bottom: -15px;*/
-  right: -45px;
-  /*top: -16px;*/
-  /*right: 5px;*/
-  /*position: absolute;*/
-  /*bottom: -15px;*/
+    visibility: hidden;
+    color: #b1b1b1;
+    /*background-color: #263e81;*/
+    /*padding: 5px;*/
+    font-size: 0.8rem;
+    /*position: absolute;*/
+    /*top: auto;*/
+    /*bottom: auto;*/
+    margin-left: 15px;
+    margin-top: auto;
+    /*top: -5px;*/
+    margin-bottom: auto;
+    position: relative;
 }
 
-.messages-Text:hover > time {
-  transform-origin: left;
-  transition: transform 230ms ease-in-out;
-  transform: scale(1.2);
+.messages:hover > time {
+    visibility: visible;
 }
 
 .messages-sender {
-  height: fit-content;
-  margin-top: 30px;
-  color: #e8eaed;
-  position: relative;
-  font-family: "Karla", sans-serif;
+    height: fit-content;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    color: #e8eaed;
+    position: relative;
+    font-family: "Karla", sans-serif;
 }
 
 .messages-sender-Consecutive {
-  margin-top: 7px;
+    margin-top: 7px;
 }
 
 .messages-Text-sender {
-  /*background-color: #4b79ff;*/
-  background: rgb(75, 121, 255);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(75, 121, 255, 1) 0%,
-    rgba(50, 81, 172, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(75, 121, 255, 1) 0%,
-    rgba(50, 81, 172, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(75, 121, 255, 1) 0%,
-    rgba(50, 81, 172, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4b79ff",endColorstr="#3251ac",GradientType=1);
-  padding: 10px;
-  position: relative;
-  border-radius: 7px;
-  width: fit-content;
-  min-width: 2%;
-  max-width: 60%;
-  margin-left: auto;
-  margin-bottom: 10px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-align: right;
+    /*background-color: #4b79ff;*/
+    background: rgb(75, 121, 255);
+    background: -moz-linear-gradient(
+            90deg,
+            rgba(75, 121, 255, 1) 0%,
+            rgba(50, 81, 172, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+            90deg,
+            rgba(75, 121, 255, 1) 0%,
+            rgba(50, 81, 172, 1) 100%
+    );
+    background: linear-gradient(
+            90deg,
+            rgba(75, 121, 255, 1) 0%,
+            rgba(50, 81, 172, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4b79ff", endColorstr="#3251ac", GradientType=1);
+    padding: 10px;
+    position: relative;
+    border-radius: 7px;
+    width: fit-content;
+    /*min-width: 2%;*/
+    max-width: 60%;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: right;
 }
 
 .messages-Text-sender p:first-line {
-  text-align: center;
+    text-align: center;
 }
 
-.messages-Text-sender:hover > time {
-  transform-origin: right;
-  transition: transform 230ms ease-in-out;
-  transform: scale(1.2);
+.messages-sender:hover > time {
+    /*transform-origin: right;*/
+    /*transition: transform 230ms ease-in-out;*/
+    /*transform: scale(1.2);*/
+    visibility: visible;
 }
 
 .messages-Timestamp-sender {
-  transform: scale(0);
-  color: rgb(160, 188, 248);
-  background-color: #263e81;
-  padding: 5px;
-  font-size: 60%;
-  position: absolute;
-  /*bottom: auto;*/
-  /*top: -16px;*/
-  /*bottom: -10px;*/
-  /*right: 5px;*/
-  left: -45px;
-  border-radius: 5px;
-  margin-right: 10px;
-  /*border: 1px solid rgba(177,177,177,0.2);*/
+    /*transform: scale(0);*/
+    visibility: hidden;
+    color: #b1b1b1;
+    /*background-color: #263e81;*/
+    /*padding: 5px;*/
+    font-size: 0.8rem;
+    /*position: absolute;*/
+    /*top: auto;*/
+    /*bottom: auto;*/
+    margin-left: auto;
+    margin-top: auto;
+    top: -5px;
+    margin-bottom: auto;
+    position: relative;
+    /*left: -65px;*/
+    /*right: 56px;*/
+    /*margin-right: 10px;*/
+    /*border: 1px solid rgba(177,177,177,0.2);*/
 }
 
 .messages-Text-sender > .messages-delete {
-  /* size: 1px; */
-  color: rgb(125, 86, 216);
-  position: absolute;
-  left: 3px;
-  bottom: -13px;
-  
+    /* size: 1px; */
+    color: rgb(125, 86, 216);
+    position: absolute;
+    left: 3px;
+    bottom: -13px;
+
 }

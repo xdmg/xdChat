@@ -1,67 +1,91 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
+import {auth} from "./firebase";
 import Pusher from "pusher-js";
 import axios from "./axios";
-// import { ObjectId } from "mongoose";
+import Authenticate from "./Authenticate";
+import {onAuthStateChanged} from "firebase/auth";
 
-function App() {
-  const [messages, setMessages] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+const App = () => {
+    const [messages, setMessages] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+    const [token, setToken] = useState(null);
+    const [fixWidth, enableFixWidth] = useState(false);
 
-  //   const canvasRef = useRef(null);
 
-  useEffect(() => {
-    axios
-      .get("/api/v1/messages/sync")
-      .then((response) => {
-        setMessages(response.data);
-        setLoaded(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    //This is a hook like useEffect,
+    //It runs everytime the authentication state changes;
+    onAuthStateChanged(auth, (currentUser) => setToken(currentUser));
 
-  useEffect(() => {
-    const pusher = new Pusher("5fd72bdbc25ba07c8de1", {
-      cluster: "ap2",
-    });
+    //Fetch all messages !STC;
+    useEffect(() => {
+        if (token !== null) {
+            axios
+                .get("/api/v1/messages/sync")
+                .then((response) => {
+                    setMessages(response.data);
+                    setLoaded(true);
 
-    const channel = pusher.subscribe("messages");
-    channel.bind("inserted", (newMessages) => {
-      console.log("Newest message out there");
-      console.log("new", newMessages);
-      setMessages([...messages, newMessages]);
-    });
+                    //This is done only for animation purposes;
+                    //It sets the minimum width on the app-body half-a-second after it has loaded;
+                    // setTimeout(() => enableFixWidth(true), 1000);
 
-    channel.bind("deleted", (msg) => {
-      // console.log(messages.filter((i) => i._id !== msg.id));
-      setMessages(messages.filter((i) => i._id !== msg.id));
-      // console.log("bind working", msg.id);
-    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    }, [token]);
 
-    // const d = () => {
-    //   console.log("gdg");
-    // };
+    //Add pusher channel's for insertion & deletion;
+    useEffect(() => {
+        const pusher = new Pusher("5fd72bdbc25ba07c8de1", {
+            cluster: "ap2",
+        });
 
-    return () => {
-      channel.unbind_all();
-      channel.unsubscribe();
-    };
-  }, [messages]);
+        const channel = pusher.subscribe("messages");
 
-  if (loaded) {
-    return (
-      <div className="app">
-        <div className="app-body">
-          <Sidebar />
-          <Chat messages={messages} />
-        </div>
-      </div>
-    );
-  } else return <div>loading...</div>;
+        channel.bind("inserted", (newMessages) => {
+            setMessages([...messages, newMessages]);
+        });
+
+        channel.bind("deleted", (msg) => {
+            setMessages(messages.filter((i) => i._id !== msg.id));
+        });
+
+        return () => {
+            channel.unbind_all();
+            channel.unsubscribe();
+        };
+    }, [messages]);
+
+    //If user is not logged in;
+    if (token === null)
+        return (
+            <div className="app">
+                <div className="auth-body">
+                    <Authenticate/>
+                </div>
+            </div>
+        )
+
+    //If authentication is done & content is loaded:
+    if (loaded)
+        return (
+            <div className="app">
+                <div className={"app-body" + (fixWidth ? " min" : "")}>
+                    <Sidebar/>
+                    <Chat messages={messages}/>
+                </div>
+            </div>
+        );
+
+    //Otherwise while loading content:
+    return (<div className="app">
+        <div className="auth-body"></div>
+    </div>);
 }
 
 export default App;
