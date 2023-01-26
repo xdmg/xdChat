@@ -3,9 +3,11 @@ import { Avatar, IconButton } from "@mui/material"
 import CircleIcon from '@mui/icons-material/Circle';
 
 const SidebarChat = ({chats}) => {
-    chats.contact = "username";
-    chats.lastMessage = "this is a test to check for overflow and hide it";
+    //TODO: Change to dynamic values;
+    chats.contact = "Placeholder";
+    chats.lastMessage = "This is a test to check for overflow and hide it";
     chats.unread = true;
+
     return (
         <div className="sidebarChat">
             <span><b>#0000</b></span>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,500&display=swap');
 
+/*Full sidebar body*/
 .sidebar {
    display: flex;
    flex-direction: column;
@@ -11,6 +12,7 @@
    overflow: hidden;
 }
 
+/*Sidebar Top*/
 .sidebar-header {
    padding-left: 30px;
    padding-right: 10px;
@@ -22,6 +24,7 @@
    min-height: 50px;
 }
 
+/*Sidebar Top Icons*/
 .sidebar-header-profile {
    display: flex;
    flex-direction: column;
@@ -45,6 +48,7 @@
    background-color: rgba(177,177,177,0.3);
 }
 
+/*Sidebar top search*/
 .sidebar-search {
    flex: 0.07;
    display: flex;
@@ -66,10 +70,8 @@
    border-radius: 10px;
 }
 
-.sidebar-searchContainer:hover{
-   /*border: 1px solid rgba(255,255,255,0.05);*/
-   background-color: rgba(177,177,177,0.1);
-   /*border: 1px inset rgba(103, 152, 255, 0.4);*/
+.sidebar-searchContainer:is(:hover,:focus-within,:active){
+   background-color: #25272b;
 }
 
 .sidebar-searchContainer input{
@@ -89,7 +91,6 @@
    color: #B1B1B1;
    padding: 0.5vw;
    border-radius: 15px;
-   /*font-size: 2.5vmin;*/
 }
 
 .sidebar-searchContainer svg:hover{
@@ -97,6 +98,7 @@
    /*background-color: rgba(177,177,177,0.3);*/
 }
 
+/*Sidebar Chat*/
 .sidebar-chats {
    display: flex;
    flex: 0.83;

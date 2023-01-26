@@ -1,8 +1,17 @@
+import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth';
+
 const firebaseConfig = {
-    apiKey: "AIzaSyC27igli5WRikxRfAypds_wK9Q4ZENDbxM",
-    authDomain: "wbca-mgxd.firebaseapp.com",
-    projectId: "wbca-mgxd",
-    storageBucket: "wbca-mgxd.appspot.com",
-    messagingSenderId: "1079429386538",
-    appId: "1:1079429386538:web:f3c3b72d0f854140d14e53"
+    apiKey: "AIzaSyAxE_Leh_wq4wbjCsiYEqdaZetRIB9zGws",
+    authDomain: "xdchat-78b34.firebaseapp.com",
+    projectId: "xdchat-78b34",
+    storageBucket: "xdchat-78b34.appspot.com",
+    messagingSenderId: "373937177279",
+    appId: "1:373937177279:web:6f6a31a6787585452bbc0a",
+    measurementId: "G-8QJMP5WMQY"
 };
+
+//Initialize Firebase;
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
