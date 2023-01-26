@@ -42,10 +42,6 @@ function App() {
       // console.log("bind working", msg.id);
     });
 
-    // const d = () => {
-    //   console.log("gdg");
-    // };
-
     return () => {
       channel.unbind_all();
       channel.unsubscribe();
