@@ -7,12 +7,13 @@ import Pusher from "pusher-js";
 import axios from "./axios";
 import Authenticate from "./Authenticate";
 import {onAuthStateChanged} from "firebase/auth";
+import {CircularProgress} from "@mui/material";
 
 const App = () => {
     const [messages, setMessages] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [token, setToken] = useState(null);
-    const [fixWidth, enableFixWidth] = useState(false);
+    // const [fixWidth, enableFixWidth] = useState(false);
 
 
     //This is a hook like useEffect,
@@ -75,7 +76,7 @@ const App = () => {
     if (loaded)
         return (
             <div className="app">
-                <div className={"app-body" + (fixWidth ? " min" : "")}>
+                <div className="app-body">
                     <Sidebar/>
                     <Chat messages={messages}/>
                 </div>
@@ -84,7 +85,8 @@ const App = () => {
 
     //Otherwise while loading content:
     return (<div className="app">
-        <div className="auth-body"></div>
+        <div className="auth-body">
+        </div>
     </div>);
 }
 

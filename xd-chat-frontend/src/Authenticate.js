@@ -1,5 +1,6 @@
 import "./Authenticate.css";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import logo from "./logos/xdchat logo - full text - white.png"
 import PasswordIcon from '@mui/icons-material/Password';
 import GoogleIcon from '@mui/icons-material/Google';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
@@ -7,6 +8,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import {auth} from "./firebase";
 import {useEffect, useMemo, useState} from "react";
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider} from "firebase/auth";
+import {CircularProgress} from "@mui/material";
 
 const Authenticate = () => {
     const [email, setEmail] = useState(""); //Email-field state;
@@ -68,8 +70,12 @@ const Authenticate = () => {
 
     return (
         <div className="outer-box">
+            {loading && <CircularProgress color="primary"/>}
             {/*Authenticate pane*/}
             <div className={"inner-box" + (switcher || loading ? " shift-left" : " ")}>
+                <div className="image">
+                    <img src={logo} alt=""/>
+                </div>
                 {/*Input fields*/}
                 <div className={"input-field" + (emailCheck ? " underline" : "")}>
                     {/*Email*/}
@@ -113,6 +119,9 @@ const Authenticate = () => {
 
             {/*Registration pane*/}
             <div className={"inner-box " + (loading ? "shift-right " : " ") + (switcher ? " " : " shift-right")}>
+                <div className="image">
+                    <img src={logo} alt=""/>
+                </div>
                 {/*Input fields*/}
                 <div className={"input-field" + (emailCheck ? " underline" : "")}>
                     {/*Email*/}
