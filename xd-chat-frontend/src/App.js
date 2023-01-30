@@ -7,7 +7,6 @@ import Pusher from "pusher-js";
 import axios from "./axios";
 import Authenticate from "./Authenticate";
 import {onAuthStateChanged} from "firebase/auth";
-import {CircularProgress} from "@mui/material";
 
 const App = () => {
     const [messages, setMessages] = useState([]);

@@ -1,13 +1,13 @@
 import "./Authenticate.css";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import logo from "./logos/xdchat logo - full text - white.png"
+import logo from "./logos/small xdchat logo - full text -.png"
 import PasswordIcon from '@mui/icons-material/Password';
 import GoogleIcon from '@mui/icons-material/Google';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import LoginIcon from '@mui/icons-material/Login';
 import {auth} from "./firebase";
-import {useEffect, useMemo, useState} from "react";
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider} from "firebase/auth";
+import {useMemo, useState} from "react";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 import {CircularProgress} from "@mui/material";
 
 const Authenticate = () => {
@@ -61,7 +61,7 @@ const Authenticate = () => {
         try {
             setLoading(true);
             const provider = new GoogleAuthProvider();
-            const result = await signInWithPopup(auth,provider);
+            const result = await signInWithPopup(auth, provider);
         } catch (e) {
             //Errors yet to be handled;
             setLoading(false);
@@ -71,11 +71,14 @@ const Authenticate = () => {
     return (
         <div className="outer-box">
             {loading && <CircularProgress color="primary"/>}
-            {/*Authenticate pane*/}
+            {/*Authentication pane*/}
             <div className={"inner-box" + (switcher || loading ? " shift-left" : " ")}>
+
+                {/*Logo*/}
                 <div className="image">
                     <img src={logo} alt=""/>
                 </div>
+
                 {/*Input fields*/}
                 <div className={"input-field" + (emailCheck ? " underline" : "")}>
                     {/*Email*/}
@@ -84,6 +87,7 @@ const Authenticate = () => {
                            type="text" onChange={(e) => {
                         setEmail(e.target.value.trim());
                     }}/>
+
                 </div>
 
                 <div className={"input-field" + (passwordCheck ? " underline" : "")}>
@@ -113,7 +117,7 @@ const Authenticate = () => {
 
                 {/*Switch to Registration*/}
                 <div className="switcher m-t-15">
-                    <p>Already have an account? <button className="switcher-button" onClick={Switch}>REGISTER</button></p>
+                    <p>Don't have an account? <button className="switcher-button" onClick={Switch}>REGISTER</button></p>
                 </div>
             </div>
 
@@ -130,6 +134,10 @@ const Authenticate = () => {
                            type="text" onChange={(e) => {
                         setEmail(e.target.value.trim());
                     }}/>
+
+                    <div className="input-field-info">
+                        <div><span>#</span>Please enter a proper email address</div>
+                    </div>
                 </div>
 
                 <div className={"input-field" + (passwordCheck ? " underline" : "")}>
@@ -139,6 +147,20 @@ const Authenticate = () => {
                            type="password" onChange={(e) => {
                         setPassword(e.target.value.trim());
                     }}/>
+
+                    <div className="input-field-info">
+                        <div>
+                            <span>#</span>
+                            <p>Password must atleast contain:
+                                <ul className="requirement-list">
+                                    <li>7 characters</li>
+                                    <li>1 numeric characters</li>
+                                    <li>1 special characters</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div><span>#</span><p>Both passwords must match</p></div>
+                    </div>
                 </div>
 
                 {/*Border*/}
@@ -158,7 +180,7 @@ const Authenticate = () => {
 
                 {/*Switch to Sign-in*/}
                 <div className="switcher m-t-15">
-                    <p>Don't have an account? <button className="switcher-button" onClick={Switch}>LOGIN</button></p>
+                    <p>Already have an account? <button className="switcher-button" onClick={Switch}>LOGIN</button></p>
                 </div>
             </div>
         </div>

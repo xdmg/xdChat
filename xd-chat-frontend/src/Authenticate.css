@@ -16,6 +16,13 @@
     color: #6798FF;
 }
 
+.text {
+    color: #e8eaed;
+    font-size: 1.2rem;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+}
+
 .inner-box {
     position: absolute;
     display: flex;
@@ -65,6 +72,7 @@
     /*padding: 0 15px 0 15px;*/
     /*padding-left: 10px;*/
     border-radius: 9px;
+    position: relative;
 }
 
 .input-field:is(:hover, :focus-within, :active) {
@@ -75,6 +83,11 @@
 .input-field:is(:focus-within, :active) > svg {
     color: #6798FF;
 }
+
+.input-field:focus-within > .input-field-info {
+    opacity: 1;
+}
+
 
 .input-field input {
     font-family: 'DM Sans', sans-serif;
@@ -126,6 +139,64 @@
 
 .svgGrey {
     color: #B1B1B1;
+}
+
+/*Correction pop-up*/
+.input-field-info {
+    position: absolute;
+    justify-content: center;
+    pointer-events: none;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    font-size: 0.9rem;
+    font-family: "Karla", sans-serif;
+    gap: 5px;
+
+    background-color: rgba(16, 16, 16, 0.7);
+    color: rgba(232, 234, 237, 0.8);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+
+    min-height: 35px;
+    width: 100%;
+    padding: 10px 0 10px 0;
+
+    bottom: calc(100% + 15px);
+    left: auto;
+    right: auto;
+
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.input-field-info:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 0;
+    border-top: 8px solid rgba(16, 16, 16, 0.7);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+
+.input-field-info > div > span {
+    color: #6798FF;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.input-field-info > div {
+    width: 90%;
+    text-align: left;
+    display: flex;
+}
+
+.requirement-list {
+    list-style-type: circle;
 }
 
 /*Button styling*/
@@ -224,15 +295,20 @@
     font-family: 'DM Sans', sans-serif;
 }
 
+.switcher-button:hover {
+    background-color: #25272b;
+}
+
 .switcher-button {
     background-color: #1C1D1F;
     font-family: 'DM Sans', sans-serif;
     border: none;
     color: #b1b1b1;
     font-size: 0.7rem;
-    letter-spacing: 1px;
+    letter-spacing: 0.05rem;
     border-radius: 5px;
-    padding: 5px;
+    margin-left: 5px;
+    padding: 0.4rem;
 }
 
 .disable-button {
