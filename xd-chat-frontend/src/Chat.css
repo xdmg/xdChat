@@ -121,9 +121,12 @@
 .chat-body {
     display: flex;
     flex: 0.8;
+    scrollbar-gutter: stable;
+    width: 100%;
     /*margin-left: 4%;*/
     /*flex-grow: 0;*/
     flex-direction: column;
+    justify-content: flex-end;
     overflow: auto;
     background: rgb(255,255,255);
     background: -moz-linear-gradient(180deg, rgba(255,255,255,0.01162471824667366) 0%, rgba(21,22,24,1) 100%);

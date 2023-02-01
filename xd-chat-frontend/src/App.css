@@ -1,3 +1,14 @@
+*,
+*:before,
+*:after {
+    /*box-sizing: border-box;*/
+}
+
+::selection{
+    background-color: #25272b;
+    color: #e8eaed;
+}
+
 /*Background*/
 .app {
     display: grid;

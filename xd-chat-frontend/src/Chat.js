@@ -44,13 +44,14 @@ const Chat = ({messages}) => {
         e.preventDefault();
         if (!posting && inputRef.current.value !== "") {
             setPosting(posting); //Lock;
+            let data = inputRef.current.value;
+            inputRef.current.value = "";
             await axios.post('/api/v1/messages/new', {
-                message: inputRef.current.value,
+                message: data,
                 sender: "sender1",
                 receiver: "sender2",
                 timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
             });
-            inputRef.current.value = "";
             setPosting(false); //Unlock;
         }
     };

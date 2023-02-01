@@ -1,5 +1,6 @@
 import "./Message.css";
-import DeleteIcon from "@mui/icons-material/Delete";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ArrowDropDownCircleOutlinedIcon from '@mui/icons-material/ArrowDropDownCircleOutlined';
 import {IconButton} from "@mui/material";
 import axios from "./axios";
 
@@ -17,10 +18,6 @@ const Message = ({message}) => {
     if (message.sender === "sender1") {
         return (
             <div className={`messages-sender ${message.sender === message.prevSender && "messages-sender-Consecutive"}`}>
-                <time dateTime={message.timestamp}
-                      className="messages-Timestamp-sender">
-                    {message.timestamp}
-                </time>
                 <div className="messages-Text-sender">
                     {message.message}
                     <div className="messages-delete">
@@ -28,9 +25,13 @@ const Message = ({message}) => {
                             size="small"
                             color="inherit"
                             onClick={() => deletionHandler(message._id)}>
-                            <DeleteIcon fontSize="inherit"/>
+                            <ArrowDropDownCircleOutlinedIcon fontSize="inherit"/>
                         </IconButton>
                     </div>
+                    <time dateTime={message.timestamp}
+                          className="messages-Timestamp-sender">
+                        {message.timestamp}
+                    </time>
                 </div>
             </div>
         );

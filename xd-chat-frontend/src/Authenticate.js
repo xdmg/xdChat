@@ -172,6 +172,7 @@ const Authenticate = () => {
                         <span>Register</span><PersonAddIcon/>
                     </button>
                 </div>
+
                 <div className="confirm-button m-t-5 button-google">
                     <button onClick={GoogleLogin}>
                         <span>Sign-up with Google</span><GoogleIcon/>
