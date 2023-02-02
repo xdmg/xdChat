@@ -13,7 +13,7 @@ import {CircularProgress} from "@mui/material";
 const Authenticate = () => {
     const [email, setEmail] = useState(""); //Email-field state;
     const [password, setPassword] = useState(""); //Password-field state;
-    const [switcher, setSwitcher] = useState(false);//State for switching between login and register;
+    const [switcher, setSwitcher] = useState(true);//State for switching between login and register;
     const [loading, setLoading] = useState(false);//State for displaying loading animation;
     const [emailCheck, setEmailCheck] = useState(false);//State for maintaining email-check;
     const [passwordCheck, setPasswordCheck] = useState(false);//State for maintaining password-check;
@@ -136,7 +136,7 @@ const Authenticate = () => {
                     }}/>
 
                     <div className="input-field-info">
-                        <div><span>#</span>Please enter a proper email address</div>
+                        <div><span>#</span><p className={emailCheck ? "fulfilled" : ""}>Please enter a proper email address </p></div>
                     </div>
                 </div>
 
@@ -151,15 +151,14 @@ const Authenticate = () => {
                     <div className="input-field-info">
                         <div>
                             <span>#</span>
-                            <p>Password must atleast contain:
+                            <p className={passwordCheck ? "fulfilled" : " "}>Password must atleast contain:
                                 <ul className="requirement-list">
-                                    <li>7 characters</li>
-                                    <li>1 numeric characters</li>
-                                    <li>1 special characters</li>
+                                    <li className={password.length > 7 ? "fulfilled" : ""}> 7 characters</li>
+                                    <li className={/(?=.*\d)/.test(password) ? "fulfilled" : ""}>1 numeric character</li>
+                                    <li className={/(?=.*\W)/.test(password) ? "fulfilled" : ""}>1 special character</li>
                                 </ul>
                             </p>
                         </div>
-                        <div><span>#</span><p>Both passwords must match</p></div>
                     </div>
                 </div>
 
@@ -175,7 +174,7 @@ const Authenticate = () => {
 
                 <div className="confirm-button m-t-5 button-google">
                     <button onClick={GoogleLogin}>
-                        <span>Sign-up with Google</span><GoogleIcon/>
+                        <span>Register with Google</span><GoogleIcon/>
                     </button>
                 </div>
 

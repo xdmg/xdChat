@@ -103,7 +103,7 @@
 }
 
 .input-field input[type="password"]:not(:placeholder-shown) {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     letter-spacing: 3px;
 }
 
@@ -196,7 +196,25 @@
 }
 
 .requirement-list {
-    list-style-type: circle;
+    margin-block: 3px;
+    margin-left: -10px;
+    /*list-style-type: circle;*/
+}
+
+li::marker{
+    /*list-style-type: ">";*/
+    content: "-  ";
+    color: #6798FF;
+    font-weight: bold;
+}
+
+.fulfilled{
+    color: #e8eaed;
+    font-weight: 500;
+}
+
+.fulfilled::marker{
+    content: '# ';
 }
 
 /*Button styling*/
@@ -230,7 +248,7 @@
     font-size: 0.9rem;
 }
 
-.confirm-button > button:hover {
+.confirm-button > button:is(:hover,:focus) {
     background-color: #6798FF;
     color: white;
     transition: 1ms ease-in-out;
@@ -242,7 +260,7 @@
     transition-timing-function: ease-in-out;
 }
 
-.confirm-button > button:hover > span {
+.confirm-button > button:is(:hover,:focus) > span {
     transform: translateX(5%);
 }
 
@@ -254,7 +272,7 @@
     transition-timing-function: ease-in-out;
 }
 
-.confirm-button > button:hover > svg {
+.confirm-button > button:is(:hover,:focus) > svg {
     transition: all 1ms ease-in-out;
     transform: translateX(50%);
     transition-property: transform;
@@ -295,7 +313,8 @@
     font-family: 'DM Sans', sans-serif;
 }
 
-.switcher-button:hover {
+.switcher-button:is(:hover,:focus) {
+    border: none;
     background-color: #25272b;
 }
 
